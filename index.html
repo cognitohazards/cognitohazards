@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COGNITOHAZARDS // RESTRICTED</title>
+    <title>cognitohazards.github.io // RESTRICTED</title>
     <style>
         body {
-            background-color: #050505;
+            background-color: #030303;
             color: #00ff66;
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
@@ -18,14 +18,14 @@
             box-sizing: border-box;
         }
 
-        /* Warning Modal / Splash Screen */
+        /* Warning Overlay */
         #warning-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #050505;
+            background-color: #030303;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,11 +35,24 @@
         }
 
         .modal-box {
-            max-width: 650px;
+            max-width: 700px;
             border: 1px solid #ff3333;
-            padding: 30px;
-            background-color: #0a0a0a;
-            box-shadow: 0 0 25px rgba(255, 51, 51, 0.2);
+            padding: 35px;
+            background-color: #080808;
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.15);
+            text-align: left;
+        }
+
+        /* Big Domain Name Header */
+        .domain-header {
+            font-size: 1.5rem;
+            color: #ffffff;
+            background: #111;
+            padding: 10px 15px;
+            border-left: 5px solid #ff3333;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            word-break: break-all;
         }
 
         .modal-box h2 {
@@ -48,20 +61,21 @@
             border-bottom: 1px solid #ff3333;
             padding-bottom: 10px;
             letter-spacing: 2px;
+            font-size: 1.2rem;
         }
 
-        /* Main Site Content (Hidden by default) */
+        /* Main Site Content (Hidden initially) */
         #main-content {
             display: none;
             max-width: 700px;
             border: 1px dashed #00ff66;
             padding: 30px;
-            background-color: #0a0a0a;
+            background-color: #080808;
             box-shadow: 0 0 20px rgba(0, 255, 102, 0.1);
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             border-bottom: 1px solid #00ff66;
             padding-bottom: 10px;
             margin-top: 0;
@@ -70,10 +84,19 @@
 
         p {
             line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .threat-box {
+            background: rgba(255, 51, 51, 0.05);
+            border: 1px dashed #ff3333;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
         }
 
         .btn-group {
-            margin-top: 25px;
+            margin-top: 30px;
             display: flex;
             gap: 15px;
         }
@@ -81,10 +104,11 @@
         button {
             background: transparent;
             font-family: 'Courier New', Courier, monospace;
-            padding: 10px 20px;
+            padding: 12px 20px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.2s;
+            font-size: 0.9rem;
         }
 
         .btn-yes {
@@ -93,7 +117,7 @@
         }
         .btn-yes:hover {
             background: #00ff66;
-            color: #050505;
+            color: #030303;
         }
 
         .btn-no {
@@ -102,13 +126,13 @@
         }
         .btn-no:hover {
             background: #ff3333;
-            color: #050505;
+            color: #030303;
         }
 
         .footer {
             margin-top: 30px;
             font-size: 0.8rem;
-            color: #666;
+            color: #555;
             text-align: center;
         }
     </style>
@@ -118,25 +142,34 @@
     <!-- WARNING OVERLAY -->
     <div id="warning-overlay">
         <div class="modal-box">
-            <h2>[SECURITY CHECK REQUIRED]</h2>
-            <p><strong>Are you [L4] Certified?</strong></p>
-            <p>Accessing this network requires verified clearance. What follows are documents detailing <strong>Cognitohazards</strong> (anomalous information that affects sensory perception when seen, heard, or experienced) and <strong>Infohazards</strong> (dangerous knowledge that causes harm simply by being known or communicated).</p>
-            <p>Unprepared viewers risk severe psychological or operational contamination. Do you wish to proceed?</p>
+            <!-- Big Domain Name at Front -->
+            <div class="domain-header">cognitohazards.github.io</div>
+            
+            <h2>[TERMINAL ACCESS RESTRICTION]</h2>
+            
+            <p>You are attempting to interface with a secure containment database. Before proceeding, verify your clearance parameters below.</p>
+            
+            <div class="threat-box">
+                <strong>THREAT ASSESSMENT:</strong><br>
+                This terminal archives <em>Cognitohazards</em> (anomalous data that causes sensory/psychological harm upon perception) and <em>Infohazards</em> (dangerous knowledge that contaminates subjects upon comprehension). Exposure without proper mental shielding can result in permanent cognitive degradation.
+            </div>
+
+            <p><strong>Do you fully understand the threat, and do you possess Class-18+ clearance (in-universe psychological maturity index)?</strong></p>
             
             <div class="btn-group">
-                <button class="btn-yes" onclick="grantAccess()">[ AUTHORIZE ACCESS ]</button>
-                <button class="btn-no" onclick="denyAccess()">[ ABANDON SITE ]</button>
+                <button class="btn-yes" onclick="grantAccess()">[ ACKNOWLEDGE & PROCEED ]</button>
+                <button class="btn-no" onclick="denyAccess()">[ DISCONNECT ]</button>
             </div>
         </div>
     </div>
 
     <!-- MAIN SITE CONTENT -->
     <div id="main-content">
-        <h1>[CLASSIFIED ACCESS GRANTED] // COGNITOHAZARDS</h1>
+        <h1>[ACCESS GRANTED] // ARCHIVE ROOT</h1>
         
-        <p>Welcome back, authorized personnel. You have successfully established a secure connection to the database.</p>
+        <p>Identity and clearance verified. Connection established through secure socket.</p>
         
-        <p>This network contains active logs of perceptual anomalies, containment breaches, and hazardous documentation. Select a category below to begin reviewing records.</p>
+        <p>Select an active containment log from the index below to begin your review. Remember: standard monitoring protocols are active.</p>
 
         <div class="footer">
             SECURE // CONTAIN // PROTECT &bull; STATUS: ONLINE
@@ -145,13 +178,11 @@
 
     <script>
         function grantAccess() {
-            // Hide the warning overlay and show the main site
             document.getElementById('warning-overlay').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
         }
 
         function denyAccess() {
-            // Redirect them away if they click abort
             window.location.href = "https://www.google.com";
         }
     </script>
