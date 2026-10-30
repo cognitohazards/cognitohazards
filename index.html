@@ -17,13 +17,49 @@
             min-height: 100vh;
             box-sizing: border-box;
         }
-        .container {
+
+        /* Warning Modal / Splash Screen */
+        #warning-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-box {
+            max-width: 650px;
+            border: 1px solid #ff3333;
+            padding: 30px;
+            background-color: #0a0a0a;
+            box-shadow: 0 0 25px rgba(255, 51, 51, 0.2);
+        }
+
+        .modal-box h2 {
+            color: #ff3333;
+            margin-top: 0;
+            border-bottom: 1px solid #ff3333;
+            padding-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Main Site Content (Hidden by default) */
+        #main-content {
+            display: none;
             max-width: 700px;
             border: 1px dashed #00ff66;
             padding: 30px;
             background-color: #0a0a0a;
             box-shadow: 0 0 20px rgba(0, 255, 102, 0.1);
         }
+
         h1 {
             font-size: 1.8rem;
             border-bottom: 1px solid #00ff66;
@@ -31,17 +67,44 @@
             margin-top: 0;
             letter-spacing: 2px;
         }
-        .warning {
-            color: #ff3333;
-            font-weight: bold;
-            background: rgba(255, 51, 51, 0.1);
-            padding: 10px;
-            border-left: 4px solid #ff3333;
-            margin: 20px 0;
-        }
+
         p {
             line-height: 1.6;
         }
+
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            background: transparent;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-yes {
+            border: 1px solid #00ff66;
+            color: #00ff66;
+        }
+        .btn-yes:hover {
+            background: #00ff66;
+            color: #050505;
+        }
+
+        .btn-no {
+            border: 1px solid #ff3333;
+            color: #ff3333;
+        }
+        .btn-no:hover {
+            background: #ff3333;
+            color: #050505;
+        }
+
         .footer {
             margin-top: 30px;
             font-size: 0.8rem;
@@ -52,21 +115,46 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>[CLASSIFIED ACCESS] // COGNITOHAZARDS</h1>
-        
-        <div class="warning">
-            WARNING: Unauthorized personnel viewing this terminal will be logged and monitored.
+    <!-- WARNING OVERLAY -->
+    <div id="warning-overlay">
+        <div class="modal-box">
+            <h2>[SECURITY CHECK REQUIRED]</h2>
+            <p><strong>Are you [L4] Certified?</strong></p>
+            <p>Accessing this network requires verified clearance. What follows are documents detailing <strong>Cognitohazards</strong> (anomalous information that affects sensory perception when seen, heard, or experienced) and <strong>Infohazards</strong> (dangerous knowledge that causes harm simply by being known or communicated).</p>
+            <p>Unprepared viewers risk severe psychological or operational contamination. Do you wish to proceed?</p>
+            
+            <div class="btn-group">
+                <button class="btn-yes" onclick="grantAccess()">[ AUTHORIZE ACCESS ]</button>
+                <button class="btn-no" onclick="denyAccess()">[ ABANDON SITE ]</button>
+            </div>
         </div>
+    </div>
 
-        <p>Welcome to the archives. You have successfully established a connection to the network.</p>
+    <!-- MAIN SITE CONTENT -->
+    <div id="main-content">
+        <h1>[CLASSIFIED ACCESS GRANTED] // COGNITOHAZARDS</h1>
         
-        <p>This database contains unsecured anomalies, perceptual threats, and anomalous documentation. Proceed with caution.</p>
+        <p>Welcome back, authorized personnel. You have successfully established a secure connection to the database.</p>
+        
+        <p>This network contains active logs of perceptual anomalies, containment breaches, and hazardous documentation. Select a category below to begin reviewing records.</p>
 
         <div class="footer">
             SECURE // CONTAIN // PROTECT &bull; STATUS: ONLINE
         </div>
     </div>
+
+    <script>
+        function grantAccess() {
+            // Hide the warning overlay and show the main site
+            document.getElementById('warning-overlay').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+
+        function denyAccess() {
+            // Redirect them away if they click abort
+            window.location.href = "https://www.google.com";
+        }
+    </script>
 
 </body>
 </html>
